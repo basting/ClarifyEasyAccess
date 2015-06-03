@@ -1,0 +1,56 @@
+keytool -genkey -keystore clfyKey -alias jdc -validity 1800
+
+jarsigner -keystore clfyKey ClarifyEasyAccess.jar jdc
+jarsigner -keystore clfyKey orai18n.jar jdc
+jarsigner -keystore clfyKey ojdbc14.jar jdc
+jarsigner -keystore clfyKey jgoodies-common-1.4.0.jar jdc
+jarsigner -keystore clfyKey jgoodies-looks-2.5.2.jar jdc
+
+
+4. Jar It
+Located your Java’s classes folder and Jar it with following command in command prompt
+
+jar -cf TestJnlp.jar *.*
+This will packs all the Java’s classes into a new jar file, named “TestJnlp.jar“.
+
+5. Create keystore
+Add a new keystore named “testkeys”
+
+keytool -genkey -keystore testKeys -alias jdc
+It will ask for keystore password, first name, last name , organization’s unit…etc..just fill them all.
+
+6. Assign keystore to Jar file
+Attached newly keystore “testkeys” to your “TestJnlp.jar” file
+
+jarsigner -keystore testKeys TestJnlp.jar jdc
+It will ask password for your newly created keystore
+
+7. Deploy JAR it
+Copy your “TestJnlp.jar” to Tomcat’s default web server folder, for example, in Windows – C:\Program Files\Apache\Tomcat 6.0\webapps\ROOT.
+
+8. Create JNLP file
+Create a new Test.jnlp file like this
+
+<?xml version="1.0" encoding="utf-8"?> 
+<jnlp spec="1.0+" codebase="http://localhost:8080/" href="Test.jnlp">
+	<information>
+		<title>Jnlp Testing</title>
+		<vendor>YONG MOOK KIM</vendor>
+		<homepage href="http://localhost:8080/" />
+		<description>Testing Testing</description>
+	</information>
+	<security>
+		<all-permissions/>
+	</security>
+	<resources>
+		<j2se version="1.6+" />
+		<jar href="TestJnlp.jar" />
+	</resources>
+	<application-desc main-class="com.mkyong.TestJnlp" />
+</jnlp>
+9. Deploy JNLP file
+Copy Test.jnlp to your tomcat default web server folder also.
+
+C:\Program Files\Apache\Tomcat 6.0\webapps\ROOT
+10. Start Tomcat
+C:\Tomcat folder\bin\tomcat6.exe

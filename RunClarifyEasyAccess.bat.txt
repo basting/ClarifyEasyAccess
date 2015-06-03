@@ -1,0 +1,3 @@
+@echo off
+javaws http://hppi010:8080/clfy/clfy.jnlp
+ 

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?> 
+<jnlp spec="1.0+" codebase="http://hppi010:8080/clfy" href="clfy.jnlp">
+	<information>
+		<title>Clarify Easy Access</title>
+		<vendor>BG</vendor>
+		<homepage href="http://hppi010:8080/" />
+		<description>Clarify Easy Access</description>
+	</information>
+	<security>
+		<all-permissions/>
+	</security>
+	<resources>
+		<j2se version="1.6+" />
+		<jar href="ClarifyEasyAccess.jar" />	
+		<jar href="orai18n.jar"/>
+		<jar href="ojdbc14.jar"/>
+		<jar href="jgoodies-common-1.4.0.jar"/>
+		<jar href="jgoodies-looks-2.5.2.jar"/>
+	</resources>
+	<application-desc main-class="com.bgh.clarify.gui.ClarifyLoginFrame" />
+</jnlp>

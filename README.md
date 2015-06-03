@@ -1,4 +1,4 @@
-# ClarifyEasyAccess
+# Clarify Easy Access
 Utility for bulk update of Clarify tickets
 
 'Clarify Easy Access' addresses the issues with Clarify. 
